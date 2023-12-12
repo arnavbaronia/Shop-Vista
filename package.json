@@ -1,0 +1,28 @@
+{
+  "name": "shopvista",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "E-commerce app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node C:/users/arnav/Desktop/ShopVista/backend/app.js",
+    "dev": "SET NODE_ENV=DEVELOPMENT& nodemon C:/users/arnav/Desktop/ShopVista/backend/app.js",
+    "prod": "SET NODE_ENV=PRODUCTION& nodemon C:/users/arnav/Desktop/ShopVista/backend/app.js",
+    "seeder": "node C:/Users/arnav/Desktop/ShopVista/backend/seeder/seeder.js"
+  },
+  "author": "Arnav Baronia",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.2",
+    "nodemailer": "^6.9.7"
+  }
+}
