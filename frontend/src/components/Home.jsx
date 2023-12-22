@@ -8,7 +8,6 @@ import CustomPagination from "./layout/CustomPagination";
 import { useSearchParams } from "react-router-dom";
 import Filters from "./layout/Filters";
 
-
 const Home = () => {
   let [searchParams] = useSearchParams();
   const page = searchParams.get("page") || 1;
@@ -18,7 +17,7 @@ const Home = () => {
   const category = searchParams.get("category");
   const ratings = searchParams.get("ratings");
 
-  const params = {page, keyword};
+  const params = { page, keyword };
 
   min !== null && (params.min = min);
   max !== null && (params.max = max);
@@ -41,15 +40,14 @@ const Home = () => {
     <>
       <MetaData title={"Buy Best Products Online"} />
       <div className="row">
-      {keyword && (
+        {keyword && (
           <div className="col-6 col-md-3 mt-5">
             <Filters />
           </div>
         )}
-
         <div className={keyword ? "col-6 col-md-9" : "col-6 col-md-12"}>
           <h1 id="products_heading" className="text-secondary">
-          {keyword
+            {keyword
               ? `${data?.products?.length} Products found with keyword: ${keyword}`
               : "Latest Products"}
           </h1>
@@ -61,6 +59,7 @@ const Home = () => {
               ))}
             </div>
           </section>
+
           <CustomPagination
             resPerPage={data?.resPerPage}
             filteredProductsCount={data?.filteredProductsCount}

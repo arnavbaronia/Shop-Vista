@@ -3,14 +3,14 @@ import {useNavigate} from "react-router-dom";
 const Search = () => {
     const [keyword, setKeyword] = useState("");
     const navigate = useNavigate();
-    const submitHandler = (e) =>{
-        e.preventDefault();
-    }
-    if(keyword?.trim){
-        navigate(`/?keyword=${keyword}`)
-    }else{
-        navigate(`/`)
-    }
+    const submitHandler = (e) => {
+      e.preventDefault();
+      if (keyword?.trim()) {
+        navigate(`/?keyword=${keyword}`);
+      } else {
+        navigate(`/`);
+      }
+    };
   return (
     <form onSubmit={submitHandler}>
     <div className="input-group">
