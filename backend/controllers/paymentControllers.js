@@ -1,8 +1,10 @@
 import catchAsyncErrors from "../middlewares/catchAsyncErrors.js";
 import Order from "../models/order.js";
+import dotenv from "dotenv";
+dotenv.config({ path: "/backend/config/config.env" });
 
 import Stripe from "stripe";
-const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
+const stripe = Stripe("sk_test_51OOHpGSC8OAV8BPWTXLF4I5yzN4vhSjZ2NPbOLI7HbJIpQsBAOxH7Tt4OssaCfZQwlgiXvLSZYLz8UZkfiaCUP9300jRD2MxSp");
 
 // Create stripe checkout session   =>  /api/v1/payment/checkout_session
 export const stripeCheckoutSession = catchAsyncErrors(
@@ -24,7 +26,7 @@ export const stripeCheckoutSession = catchAsyncErrors(
         quantity: item?.quantity,
       };
     });
-
+    console.log("sk_test_51OOHpGSC8OAV8BPWTXLF4I5yzN4vhSjZ2NPbOLI7HbJIpQsBAOxH7Tt4OssaCfZQwlgiXvLSZYLz8UZkfiaCUP9300jRD2MxSp")
     const shippingInfo = body?.shippingInfo;
 
     const shipping_rate =
@@ -85,7 +87,7 @@ export const stripeWebhook = catchAsyncErrors(async (req, res, next) => {
     const event = stripe.webhooks.constructEvent(
       req.rawBody,
       signature,
-      process.env.STRIPE_WEBHOOK_SECRET
+      "whsec_8fedfeae42baf951afe8b195c2692fad88a4d24d786f4e21d75f1cb31d2a1e6a"
     );
 
     if (event.type === "checkout.session.completed") {

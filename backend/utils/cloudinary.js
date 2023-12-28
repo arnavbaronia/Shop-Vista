@@ -1,17 +1,14 @@
 import cloudinary from "cloudinary";
-import dotenv from "dotenv";
 
-dotenv.config({ path: "/backend/config/config.env" });
+const CLOUD_NAME = "dnrhhc8nh";
+const API_KEY = "544689453917969";
+const API_SECRET = "Z31NPSzx8Frrw2CPh7Aya5G3Tpk";
 
 cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
+  cloud_name: CLOUD_NAME,
+  api_key: API_KEY,
+  api_secret: API_SECRET,
 });
-console.log(process.env.CLOUDINARY_CLOUD_NAME);
-console.log(process.env.CLOUDINARY_API_KEY);
-console.log(process.env.CLOUDINARY_API_SECRET);
-
 
 export const upload_file = (file, folder) => {
   return new Promise((resolve, reject) => {

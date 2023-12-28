@@ -8,15 +8,12 @@ import { useLazyLogoutQuery } from "../../redux/api/authApi";
 const Header = () => {
   const navigate = useNavigate();
 
-  // Fetch user information
   const { isLoading } = useGetMeQuery();
   const [logout] = useLazyLogoutQuery();
 
-  // Extract user and cartItems from the Redux store
   const { user } = useSelector((state) => state.auth);
-  const { cartItems } = useSelector((state) => state.cart) || { cartItems: [] };
+  const { cartItems } = useSelector((state) => state.cart);
 
-  // Handle logout
   const logoutHandler = () => {
     logout();
     navigate(0);
@@ -35,15 +32,15 @@ const Header = () => {
         <Search />
       </div>
       <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
-        <Link to="/cart" style={{ textDecoration: "none" }}>
+        <a href="/cart" style={{ textDecoration: "none" }}>
           <span id="cart" className="ms-3">
             {" "}
             Cart{" "}
           </span>
           <span className="ms-1" id="cart_count">
-            {cartItems.length}
+            {cartItems?.length}
           </span>
-        </Link>
+        </a>
 
         {user ? (
           <div className="ms-4 dropdown">
@@ -56,29 +53,38 @@ const Header = () => {
             >
               <figure className="avatar avatar-nav">
                 <img
-                  src={user.avatar ? user.avatar.url : "/images/default_avatar.jpg"}
+                  src={
+                    user?.avatar
+                      ? user?.avatar?.url
+                      : "/images/default_avatar.jpg"
+                  }
                   alt="User Avatar"
                   className="rounded-circle"
                 />
               </figure>
-              <span>{user.name}</span>
+              <span>{user?.name}</span>
             </button>
             <div
               className="dropdown-menu w-100"
               aria-labelledby="dropDownMenuButton"
             >
-              <Link className="dropdown-item" to="/admin/dashboard">
-                {" "}
-                Dashboard{" "}
-              </Link>
+              {user?.role === "admin" && (
+                <Link className="dropdown-item" to="/admin/dashboard">
+                  {" "}
+                  Dashboard{" "}
+                </Link>
+              )}
+
               <Link className="dropdown-item" to="/me/orders">
                 {" "}
                 Orders{" "}
               </Link>
+
               <Link className="dropdown-item" to="/me/profile">
                 {" "}
                 Profile{" "}
               </Link>
+
               <Link
                 className="dropdown-item text-danger"
                 to="/"

@@ -1,5 +1,5 @@
 import catchAsyncErrors from "../middlewares/catchAsyncErrors.js";
-import User from "../models/users.js";
+import User from "../models/user.js";
 import { getResetPasswordTemplate } from "../utils/emailTemplates.js";
 import ErrorHandler from "../utils/errorHandler.js";
 import sendToken from "../utils/sendToken.js";
@@ -245,7 +245,10 @@ export const deleteUser = catchAsyncErrors(async (req, res, next) => {
     );
   }
 
-  // TODO - Remove user avatar from cloudinary
+  // Remove user avatar from cloudinary
+  if (user?.avatar?.public_id) {
+    await delete_file(user?.avatar?.public_id);
+  }
 
   await user.deleteOne();
 
