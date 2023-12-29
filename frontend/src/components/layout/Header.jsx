@@ -20,7 +20,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="navbar row">
+    <nav className="navbar row" style={{ height: "4.1em" }}>
       <div className="col-12 col-md-3 ps-5">
         <div className="navbar-brand">
           <a href="/">
