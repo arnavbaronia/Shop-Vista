@@ -65,7 +65,7 @@ const ListOrders = () => {
       rows: [],
     };
 
-    data?.orders?.forEach((order) => {
+    data?.order?.forEach((order) => {
       orders.rows.push({
         id: order?._id,
         paymentStatus: order?.paymentInfo?.status?.toUpperCase(),
@@ -100,7 +100,7 @@ const ListOrders = () => {
     <AdminLayout>
       <MetaData title={"All Orders"} />
 
-      <h1 className="my-5">{data?.orders?.length} Orders</h1>
+      <h1 className="my-5">{data?.order?.length} Orders</h1>
 
       <MDBDataTable
         data={setOrders()}
