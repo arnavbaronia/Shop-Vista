@@ -6,6 +6,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node ./backend/app.js",
+    "build": "react-scripts build",
     "dev": "SET NODE_ENV=DEVELOPMENT& nodemon C:/users/arnav/Desktop/ShopVista/backend/app.js",
     "prod": "SET NODE_ENV=PRODUCTION& nodemon C:/users/arnav/Desktop/ShopVista/backend/app.js",
     "seeder": "node C:/Users/arnav/Desktop/ShopVista/backend/seeder/seeder.js"
