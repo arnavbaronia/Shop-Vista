@@ -6,7 +6,6 @@
   "main": "app.js",
   "scripts": {
     "start": "node ./backend/app.js",
-    "build": "react-scripts build",
     "dev": "SET NODE_ENV=DEVELOPMENT& nodemon C:/users/arnav/Desktop/ShopVista/backend/app.js",
     "prod": "SET NODE_ENV=PRODUCTION& nodemon C:/users/arnav/Desktop/ShopVista/backend/app.js",
     "seeder": "node C:/Users/arnav/Desktop/ShopVista/backend/seeder/seeder.js"
@@ -21,13 +20,16 @@
     "bcryptjs": "^2.4.3",
     "cloudinary": "^1.41.0",
     "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "datepicker": "^0.0.0",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "helmet": "^8.0.0",
     "jsonwebtoken": "^9.0.2",
     "mdbreact": "^5.2.0",
     "mongoose": "^8.0.2",
     "nodemailer": "^6.9.7",
-    "stripe": "^14.9.0"
+    "stripe": "^14.9.0",
+    "validator": "^13.12.0"
   }
 }
